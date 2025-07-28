@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8" />
+<title>קבלה דיגיטלית</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<img src="logo.png" alt="הלוגו" class="logo" /><h1>קבלה דיגיטלית</h1>
+
+<form id="receiptForm">
+  <label>מספר קבלה: <input type="text" id="receiptNumber" readonly /></label>
+  <label>שם מלא: <input type="text" id="fullName" /></label>
+  <label>טלפון: <input type="tel" id="phone" /></label>
+  <label>מייל: <input type="email" id="email" /></label>
+  <label>הערות: <textarea id="notes"></textarea></label>
+
+  <h2>חתימה</h2>
+  <canvas id="signaturePad"></canvas>
+  <br />
+  <button type="button" onclick="clearSignature()">נקה חתימה</button>
+  <button type="button" onclick="saveData()">שמור</button>
+  <button type="button" onclick="downloadReceipt()">הורד קבלה</button>
+</form>
+
+<div id="receipt">
+  <h2>פרטי הקבלה</h2>
+  <p>מספר קבלה: <span id="displayNumber"></span></p>
+  <p>שם מלא: <span id="displayFullName"></span></p>
+  <p>טלפון: <span id="displayPhone"></span></p>
+  <p>מייל: <span id="displayEmail"></span></p>
+  <p>הערות: <span id="displayNotes"></span></p>
+  <h3>חתימה</h3>
+  <div id="displaySignature" style="border:1px solid #000; width:300px; height:200px;"></div>
+</div>
+
+<script src="script.js"></script>
+<!-- טעינת ספריית html2canvas לצורך ההורדה כתמונה -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<!-- טעינת SignaturePad -->
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+</body>
+</html>
