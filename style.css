@@ -5,9 +5,9 @@ body {
 }
 
 .logo {
-  display: block;
+  display: display-inside;
   margin: 20px auto;
-  max-width: 200px;
+  max-width: 50px;
 }
 h1 {
   text-align: center;
@@ -46,5 +46,5 @@ button {
   padding: 10px;
   max-width: 600px;
   margin: auto;
-  background-image: image('');
+  background-image: image('logo.png');
 }

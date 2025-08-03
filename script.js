@@ -2,23 +2,7 @@
 let receiptCounter = 1;
 document.getElementById('receiptNumber').value = receiptCounter;
 
-// אתחול מחברת חתימה
-const canvas = document.getElementById('signaturePad');
-const signaturePad = new SignaturePad(canvas);
 
-function resizeCanvas() {
-  const ratio = Math.max(window.devicePixelRatio || 1, 1);
-  canvas.width = canvas.offsetWidth * ratio;
-  canvas.height = canvas.offsetHeight * ratio;
-  canvas.getContext("2d").setTransform(1, 0, 0, 1, 0, 0);
-  signaturePad.clear();
-}
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
-
-function clearSignature() {
-  signaturePad.clear();
-}
 
 function saveData() {
   // שמירת הנתונים בשדות התצוגה
@@ -27,14 +11,6 @@ function saveData() {
   document.getElementById('displayPhone').textContent = document.getElementById('phone').value;
   document.getElementById('displayEmail').textContent = document.getElementById('email').value;
   document.getElementById('displayNotes').textContent = document.getElementById('notes').value;
-
-  // הצגת חתימה
-  if (!signaturePad.isEmpty()) {
-    const dataURL = signaturePad.toDataURL();
-    document.getElementById('displaySignature').innerHTML = `<img src="${dataURL}" style="width:100%; height:100%;" />`;
-  } else {
-    document.getElementById('displaySignature').innerHTML = '';
-  }
 
   // עדכון מספר קבלה
   receiptCounter++;
@@ -50,3 +26,13 @@ function downloadReceipt() {
     link.click();
   });
 }
+// עדכון זמן הפקה
+function getCurrentDateTime() {
+    const now = new Date();
+    const date = now.toLocaleDateString('iw-IL' );
+    const time = now.toLocaleTimeString('iw-IL', { hour: '2-digit', minute: '2-digit' });
+    return `${date} --- ${time}`;
+  }
+
+  // הצגת התאריך והשעה בעת טעינת העמוד
+  document.getElementById('dateTime').textContent = getCurrentDateTime();
