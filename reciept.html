@@ -7,7 +7,8 @@
 </head>
 <body>
 
-<img src="logo.png" alt="הלוגו" class="logo" /><h1>קבלה דיגיטלית</h1>
+<img src="logo.png" alt="הלוגו" class="logo" />
+<h1>קבלה דיגיטלית</h1>
 
 <form id="receiptForm">
   <label>מספר קבלה: <input type="text" id="receiptNumber" readonly /></label>
@@ -16,8 +17,7 @@
   <label>מייל: <input type="email" id="email" /></label>
   <label>הערות: <textarea id="notes"></textarea></label>
 
-  <h2>חתימה</h2>
-  <canvas id="signaturePad"></canvas>
+  
   <br />
   <button type="button" onclick="clearSignature()">נקה חתימה</button>
   <button type="button" onclick="saveData()">שמור</button>
@@ -31,8 +31,9 @@
   <p>טלפון: <span id="displayPhone"></span></p>
   <p>מייל: <span id="displayEmail"></span></p>
   <p>הערות: <span id="displayNotes"></span></p>
-  <h3>חתימה</h3>
-  <div id="displaySignature" style="border:1px solid #000; width:300px; height:200px;"></div>
+ 
+ <p>הופק ע"י:</p> 
+   <p>אבבה האבטמו  |  תאריך ושעה: <span id="dateTime"></span></p>
 </div>
 
 <script src="script.js"></script>
